@@ -1,6 +1,8 @@
 import Vue from 'vue';
-import { mdiGithub } from '@mdi/js'
+import { mdiGithub, mdiPlus, mdiMinus } from '@mdi/js'
 
 Vue.prototype.$icons = {
-  github: mdiGithub
+  github: mdiGithub,
+  plus: mdiPlus,
+  minus: mdiMinus
 }
