@@ -20,7 +20,26 @@
       </v-card-title>
 
       <v-card-text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <v-form
+          ref="form"
+          v-model="isFormValid"
+        >
+          <v-select
+            v-model="category"
+            label="Категория"
+            filled
+            required
+            :items="categories"
+            :rules="[isCategoryValueValid]"
+          />
+          <v-text-field
+            v-model.number="amount"
+            label="Сумма"
+            outlined
+            required
+            :rules="[isAmountValueValid]"
+          />
+        </v-form>
       </v-card-text>
 
       <v-divider />
@@ -30,7 +49,8 @@
         <v-btn
           color="primary"
           text
-          @click="dialog = false"
+          :disabled="!isFormValid"
+          @click="accept"
         >
           Подтвердить
         </v-btn>
@@ -40,9 +60,35 @@
 </template>
 
 <script>
+  import { categories } from '~/constants'
+
   export default {
     data: () => ({
       dialog: false,
-    })
+      isFormValid: false,
+      category: '',
+      amount: 0,
+      categories,
+    }),
+
+    methods: {
+      accept() {
+        this.close()
+        this.reset()
+      },
+
+      reset() {
+         this.$refs.form.reset()
+         this.$refs.form.resetValidation()
+      },
+
+      close() {
+        this.dialog = false
+      },
+
+      isAmountValueValid: (value) => !!Number(value) && !/[^0-9]/.test(value),
+
+      isCategoryValueValid: (value) => !!value,
+    }
   }
 </script>
