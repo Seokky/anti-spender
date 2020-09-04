@@ -6,10 +6,11 @@
     <template v-slot:activator="{ on, attrs }">
       <v-btn
         color="green"
+        large
         v-bind="attrs"
         v-on="on"
       >
-        <v-icon>{{ $icons.plus }}</v-icon>
+        <v-icon v-text="$icons.plus" />
         Прибыль
       </v-btn>
     </template>

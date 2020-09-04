@@ -17,8 +17,8 @@
 
 <style lang="scss" module>
 .actions {
-  *:first-of-type {
-    margin-right: 8px;
+  button:first-of-type {
+    margin-right: 12px;
   }
 }
 </style>
