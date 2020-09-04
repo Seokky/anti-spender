@@ -32,6 +32,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    './plugins/icons.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -93,10 +94,5 @@ module.exports = {
         overlay: false
       }
     },
-    /*
-    ** You can extend webpack config here
-    */
-    extend (config, ctx) {
-    }
   }
 }
