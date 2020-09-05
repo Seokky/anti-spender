@@ -2,7 +2,16 @@
   <v-footer
     fixed
     app
+    dark
   >
+    <v-btn
+      depressed
+      icon
+      @click="changeTheme"
+    >
+      <v-icon>{{ $icons.theme }}</v-icon>
+    </v-btn>
+
     <v-spacer />
 
     <a
@@ -13,10 +22,18 @@
       <v-icon>{{ $icons.github }}</v-icon>
       <span :class="$style['link__text']">GitHub</span>
     </a>
-
-    <v-spacer />
   </v-footer>
 </template>
+
+<script>
+export default {
+  methods: {
+    changeTheme() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+    }
+  }
+}
+</script>
 
 <style lang="scss" module>
 .link {
