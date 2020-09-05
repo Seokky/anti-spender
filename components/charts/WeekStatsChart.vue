@@ -1,6 +1,8 @@
 <template>
   <vc-donut
     class="week-donut"
+    has-legend
+    legend-placement="bottom"
     :size="200"
     :thickness="50"
     :total="total"
@@ -14,6 +16,10 @@
       class="small-donut__total"
       v-text="total"
     />
+
+    <template slot="legend">
+      <donut-aside-stats :stats="stats" />
+    </template>
   </vc-donut>
 </template>
 

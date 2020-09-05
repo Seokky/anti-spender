@@ -14,7 +14,23 @@
     <v-flex :class="$style.stats">
       <v-card :class="$style.stats__row">
         <v-card-text>
-          <v-row justify="center">
+          <app-categories-list />
+
+          <div :class="$style['today-donut-wrapper']">
+            <stats-charts-factory
+              name="today"
+              :stats="stats.today"
+            />
+          </div>
+        </v-card-text>
+      </v-card>
+
+      <v-card :class="$style.stats__row">
+        <v-card-text>
+          <v-row
+            justify="center"
+            align="start"
+          >
             <stats-charts-factory
               name="yesterday"
               :stats="stats.yesterday"
@@ -30,22 +46,9 @@
             <stats-charts-factory
               name="month"
               :stats="stats.month"
-            />
-          </v-row>
-        </v-card-text>
-      </v-card>
-
-      <v-card :class="$style.stats__row">
-        <v-card-text>
-          <app-categories-list />
-
-          <div :class="$style['today-donut-wrapper']">
-            <stats-charts-factory
-              name="today"
-              :stats="stats.today"
               :class="$style.donut"
             />
-          </div>
+          </v-row>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -97,20 +100,27 @@ export default {
   }
 }
 
+.donut {
+  :global(.donut-aside-stats) {
+    margin-top: 20px;
+    padding-left: 0;
+  }
+
+  &:nth-of-type(2) {
+    margin: 0 50px;
+  }
+}
+
 .stats {
   &__row {
     margin-top: 20px;
 
-    &:nth-of-type(2) {
+    &:first-of-type {
       :global(.v-card__text) {
         display: flex;
       }
     }
   }
-}
-
-.donut:nth-of-type(2) {
-  margin: 0 20px;
 }
 
 .today-donut-wrapper {

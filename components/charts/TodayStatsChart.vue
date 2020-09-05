@@ -16,6 +16,10 @@
       :class="$style.total"
       v-text="total"
     />
+
+    <template slot="legend">
+      <donut-aside-stats :stats="stats" />
+    </template>
   </vc-donut>
 </template>
 

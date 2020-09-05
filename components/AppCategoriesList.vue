@@ -1,5 +1,5 @@
 <template>
-  <div :class="$style.list">
+  <ul :class="$style.list">
     <li
       v-for="category in categories"
       :key="category.color"
@@ -15,7 +15,7 @@
         v-text="category.name"
       />
     </li>
-  </div>
+  </ul>
 </template>
 
 <script>
@@ -33,6 +33,7 @@ export default {
   max-height: 350px;
   overflow-y: auto;
   list-style: none;
+  padding-left: 0 !important;
   padding-right: 15px;
 
   &__item {
