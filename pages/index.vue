@@ -98,16 +98,16 @@ export default {
   &__row {
     margin-top: 10px;
 
-    &:first-of-type {
-      :global(.v-card__text) {
-        display: flex;
-      }
-    }
-
     :global(.row) {
       justify-content: center;
       align-items: flex-start;
       margin: 0 10px 0 20px;
+    }
+
+    &:first-of-type {
+      :global(.v-card__text) {
+        display: flex;
+      }
     }
   }
 }
