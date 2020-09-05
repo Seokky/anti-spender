@@ -6,7 +6,14 @@
     :total="total"
     :sections="stats"
   >
-    Вчера
+    <span
+      class="small-donut__legend"
+      v-text="'Вчера'"
+    />
+    <span
+      class="small-donut__total"
+      v-text="total"
+    />
   </vc-donut>
 </template>
 

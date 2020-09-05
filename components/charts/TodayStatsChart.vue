@@ -8,7 +8,14 @@
     :total="total"
     :sections="stats"
   >
-    Сегодня
+    <span
+      :class="$style.legend"
+      v-text="'Сегодня'"
+    />
+    <span
+      :class="$style.total"
+      v-text="total"
+    />
   </vc-donut>
 </template>
 
@@ -22,3 +29,14 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" module>
+.legend {
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.total {
+  font-weight: bold;
+}
+</style>

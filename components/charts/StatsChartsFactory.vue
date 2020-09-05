@@ -80,4 +80,14 @@ export default {
     color: white;
   }
 }
+
+.small-donut {
+  &__legend {
+    display: block;
+  }
+
+  &__total {
+    font-weight: bold;
+  }
+}
 </style>

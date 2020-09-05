@@ -6,7 +6,14 @@
     :total="total"
     :sections="stats"
   >
-    На этой неделе
+    <span
+      class="small-donut__legend"
+      v-text="'Неделя'"
+    />
+    <span
+      class="small-donut__total"
+      v-text="total"
+    />
   </vc-donut>
 </template>
 

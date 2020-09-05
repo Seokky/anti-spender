@@ -6,7 +6,14 @@
     :total="total"
     :sections="stats"
   >
-    В этом месяце
+    <span
+      class="small-donut__legend"
+      v-text="'Месяц'"
+    />
+    <span
+      class="small-donut__total"
+      v-text="total"
+    />
   </vc-donut>
 </template>
 
