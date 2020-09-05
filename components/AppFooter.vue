@@ -4,13 +4,7 @@
     app
     dark
   >
-    <v-btn
-      depressed
-      icon
-      @click="changeTheme"
-    >
-      <v-icon>{{ $icons.theme }}</v-icon>
-    </v-btn>
+    <app-theme-toggler />
 
     <v-spacer />
 
@@ -24,16 +18,6 @@
     </a>
   </v-footer>
 </template>
-
-<script>
-export default {
-  methods: {
-    changeTheme() {
-      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
-    }
-  }
-}
-</script>
 
 <style lang="scss" module>
 .link {
