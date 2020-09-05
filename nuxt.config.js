@@ -32,7 +32,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    './plugins/icons.js'
+    './plugins/icons.js',
+    './plugins/vc-donut.js'
   ],
   /*
   ** Nuxt.js dev-modules

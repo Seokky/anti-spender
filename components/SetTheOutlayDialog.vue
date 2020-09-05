@@ -30,6 +30,7 @@
             label="Категория"
             filled
             required
+            item-text="name"
             :items="categories"
             :rules="[isCategoryValueValid]"
           />
