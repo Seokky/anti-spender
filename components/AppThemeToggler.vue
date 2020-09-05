@@ -2,7 +2,7 @@
   <v-btn
     depressed
     icon
-    @click="changeTheme"
+    @click="toggleTheme"
   >
     <v-icon>{{ $icons.theme }}</v-icon>
   </v-btn>
@@ -11,9 +11,21 @@
 
 <script>
 export default {
+  mounted() {
+    this.setThemeFromStorage()
+  },
+
   methods: {
-    changeTheme() {
+    toggleTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      this.saveThemeToStorage()
+    },
+    saveThemeToStorage() {
+      localStorage.setItem('anti-spender:dark', Number(this.$vuetify.theme.dark))
+    },
+    setThemeFromStorage() {
+      const storedValue = localStorage.getItem('anti-spender:dark')
+      this.$vuetify.theme.dark = Boolean(Number(storedValue))
     }
   }
 }
