@@ -20,3 +20,6 @@
   </v-app>
 </template>
 
+<style lang="scss">
+@import '~/assets/styles/vuetify-reassign';
+</style>
