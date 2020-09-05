@@ -1,5 +1,5 @@
 <template>
-  <ul :class="$style.list">
+  <ul :class="[$style.list, 'app-categories-list']">
     <li
       v-for="category in categories"
       :key="category.color"
@@ -54,6 +54,24 @@ export default {
     &__name {
       font-size: 16px;
     }
+  }
+}
+</style>
+
+<style lang="scss" scoped>
+.app-categories-list {
+  &::-webkit-scrollbar {
+    width: 6px;               /* width of the entire scrollbar */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;        /* color of the tracking area */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #c9c6c6;    /* color of the scroll thumb */
+    border-radius: 25px;       /* roundness of the scroll thumb */
+    border: 3px solid transparent;  /* creates padding around scroll thumb */
   }
 }
 </style>

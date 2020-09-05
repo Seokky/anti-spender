@@ -2,7 +2,6 @@
   <v-footer
     fixed
     app
-    dark
   >
     <app-theme-toggler />
 
@@ -34,6 +33,12 @@
   &__text {
     position: relative;
     top: 1px;
+  }
+}
+
+:global(.theme--light.v-application) {
+  .link {
+    color: gray !important;
   }
 }
 </style>

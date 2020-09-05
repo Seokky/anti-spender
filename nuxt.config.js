@@ -80,7 +80,7 @@ module.exports = {
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: '#d44f45',
-          success: '#4fb553db'
+          success: '#5aad5d'
         },
         light: {
           primary: '#1976D2',
@@ -88,7 +88,7 @@ module.exports = {
           accent: '#82B1FF',
           error: '#d44f45',
           info: '#2196F3',
-          success: '#4fb553db',
+          success: '#5aad5d',
           warning: '#FFC107',
         }
       }

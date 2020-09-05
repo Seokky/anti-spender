@@ -4,12 +4,10 @@
     justify-center
     align-center
   >
-    <v-card>
-      <v-card-actions :class="$style.actions">
-        <set-the-outlay-dialog />
-        <set-the-income-dialog />
-      </v-card-actions>
-    </v-card>
+    <div :class="$style.actions">
+      <set-the-outlay-dialog />
+      <set-the-income-dialog />
+    </div>
 
     <v-flex :class="$style.stats">
       <v-card :class="$style.stats__row">
@@ -62,7 +60,8 @@ export default {
       today: [
         { category: 'Для дома', value: 500 },
         { category: 'Техника', value: 2000 },
-        { category: 'Развлечения', value: 1000 }
+        { category: 'Развлечения', value: 1000 },
+        { category: 'Интернет-провайдер', value: 1000 }
       ],
       yesterday: [
         { category: 'Для дома', value: 500 },
@@ -77,6 +76,7 @@ export default {
         { category: 'Развлечения', value: 5000 },
         { category: 'Кварт. плата', value: 13000 },
         { category: 'Кредиты', value: 2000 },
+        { category: 'Интернет-провайдер', value: 1000 }
       ],
       month: [
         { category: 'Для дома', value: 2500 },
@@ -84,7 +84,8 @@ export default {
         { category: 'Развлечения', value: 5000 },
         { category: 'Кварт. плата', value: 13000 },
         { category: 'Кредиты', value: 2000 },
-        { category: 'Налоги', value: 7000 }
+        { category: 'Налоги', value: 7000 },
+        { category: 'Интернет-провайдер', value: 1000 }
       ],
     },
   }),
@@ -93,6 +94,7 @@ export default {
 
 <style lang="scss" module>
 .actions {
+  margin-top: 10px;
   justify-content: center;
 
   button:first-of-type {
@@ -107,7 +109,7 @@ export default {
   }
 
   &:nth-of-type(2) {
-    margin: 0 50px;
+    margin: 0 60px;
   }
 }
 
@@ -127,6 +129,6 @@ export default {
   flex-grow: 1;
   display: flex;
   justify-content: center;
-  margin-left: 30px;
+  margin-left: 40px;
 }
 </style>
