@@ -3,7 +3,7 @@
     class="today-donut"
     has-legend
     legend-placement="right"
-    :size="320"
+    :size="280"
     :thickness="50"
     :total="total"
     :sections="stats"

@@ -4,9 +4,12 @@
       fixed
       app
     >
-      <v-spacer />
       <v-toolbar-title>Anti Spender</v-toolbar-title>
       <v-spacer />
+      <div :class="$style.actions">
+        <set-the-outlay-dialog />
+        <set-the-income-dialog />
+      </div>
     </v-app-bar>
 
     <v-main>
@@ -21,4 +24,12 @@
 
 <style lang="scss">
 @import '~/assets/styles/vuetify-reassign';
+</style>
+
+<style lang="scss" module>
+.actions {
+  button:first-of-type {
+    margin-right: 6px;
+  }
+}
 </style>

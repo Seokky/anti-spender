@@ -30,7 +30,7 @@ export default {
 
 <style lang="scss" module>
 .list {
-  max-height: 350px;
+  max-height: 300px;
   overflow-y: auto;
   list-style: none;
   padding-left: 0 !important;

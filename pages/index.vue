@@ -4,16 +4,9 @@
     justify-center
     align-center
   >
-    <div :class="$style.actions">
-      <set-the-outlay-dialog />
-      <set-the-income-dialog />
-    </div>
-
     <v-flex :class="$style.stats">
       <v-card :class="$style.stats__row">
         <v-card-text>
-          <app-categories-list />
-
           <div :class="$style['today-donut-wrapper']">
             <stats-charts-factory
               name="today"
@@ -25,10 +18,7 @@
 
       <v-card :class="$style.stats__row">
         <v-card-text>
-          <v-row
-            justify="center"
-            align="start"
-          >
+          <v-row>
             <stats-charts-factory
               name="yesterday"
               :stats="stats.yesterday"
@@ -93,15 +83,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-.actions {
-  margin-top: 10px;
-  justify-content: center;
-
-  button:first-of-type {
-    margin-right: 8px;
-  }
-}
-
 .donut {
   :global(.donut-aside-stats) {
     margin-top: 20px;
@@ -115,12 +96,18 @@ export default {
 
 .stats {
   &__row {
-    margin-top: 20px;
+    margin-top: 10px;
 
     &:first-of-type {
       :global(.v-card__text) {
         display: flex;
       }
+    }
+
+    :global(.row) {
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0 10px 0 20px;
     }
   }
 }
