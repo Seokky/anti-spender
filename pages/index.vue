@@ -4,25 +4,17 @@
     justify-center
     align-center
   >
-    <v-flex>
-      <v-card>
-        <v-card-actions :class="$style.actions">
-          <set-the-outlay-dialog />
-          <set-the-income-dialog />
-        </v-card-actions>
-      </v-card>
-    </v-flex>
+    <v-card>
+      <v-card-actions :class="$style.actions">
+        <set-the-outlay-dialog />
+        <set-the-income-dialog />
+      </v-card-actions>
+    </v-card>
 
     <v-flex :class="$style.stats">
       <v-card :class="$style.stats__row">
         <v-card-text>
-          <v-row>
-            <stats-charts-factory
-              name="today"
-              :stats="stats.today"
-              :class="$style.donut"
-            />
-
+          <v-row justify="center">
             <stats-charts-factory
               name="yesterday"
               :stats="stats.yesterday"
@@ -34,16 +26,26 @@
               :stats="stats.week"
               :class="$style.donut"
             />
+
+            <stats-charts-factory
+              name="month"
+              :stats="stats.month"
+            />
           </v-row>
         </v-card-text>
       </v-card>
 
       <v-card :class="$style.stats__row">
         <v-card-text>
-          <stats-charts-factory
-            name="month"
-            :stats="stats.month"
-          />
+          <app-categories-list />
+
+          <div :class="$style['today-donut-wrapper']">
+            <stats-charts-factory
+              name="today"
+              :stats="stats.today"
+              :class="$style.donut"
+            />
+          </div>
         </v-card-text>
       </v-card>
     </v-flex>
@@ -98,10 +100,23 @@ export default {
 .stats {
   &__row {
     margin-top: 20px;
+
+    &:nth-of-type(2) {
+      :global(.v-card__text) {
+        display: flex;
+      }
+    }
   }
 }
 
-.donut {
+.donut:nth-of-type(2) {
   margin: 0 20px;
+}
+
+.today-donut-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  margin-left: 30px;
 }
 </style>

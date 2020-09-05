@@ -1,7 +1,9 @@
 <template>
   <vc-donut
     class="today-donut"
-    :size="200"
+    has-legend
+    legend-placement="right"
+    :size="320"
     :thickness="50"
     :total="total"
     :sections="stats"

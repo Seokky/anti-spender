@@ -1,7 +1,7 @@
 <template>
   <vc-donut
     class="month-donut"
-    :size="320"
+    :size="200"
     :thickness="50"
     :total="total"
     :sections="stats"
