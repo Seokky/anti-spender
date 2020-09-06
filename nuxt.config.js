@@ -33,7 +33,8 @@ module.exports = {
   */
   plugins: [
     './plugins/icons.js',
-    './plugins/vc-donut.js'
+    './plugins/vc-donut.js',
+    './plugins/snackbarsManager.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -57,7 +58,8 @@ module.exports = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/auth'
   ],
   /*
   ** Axios module configuration
@@ -91,6 +93,20 @@ module.exports = {
           success: '#5aad5d',
           warning: '#FFC107',
         }
+      }
+    }
+  },
+  auth: {
+    strategies: {
+      google: {
+        client_id: '446323837687-drr0ghoa2cdjgi667avcsju7fnk7cq3f.apps.googleusercontent.com',
+      },
+    }
+  },
+  vue: {
+    config: {
+      devServer: {
+        clientLogLevel: 'silent'
       }
     }
   },

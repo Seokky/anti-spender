@@ -63,8 +63,11 @@
 
 <script>
   import { categories } from '~/constants'
+  import protectDialogMixin from '~/mixins/protectDialogMixin'
 
   export default {
+    mixins: [protectDialogMixin],
+
     data: () => ({
       dialog: false,
       isFormValid: false,
