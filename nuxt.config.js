@@ -1,4 +1,5 @@
 const colors = require('vuetify/es5/util/colors').default
+require('dotenv').config()
 
 module.exports = {
   mode: 'spa',
@@ -82,7 +83,7 @@ module.exports = {
   auth: {
     strategies: {
       google: {
-        client_id: '446323837687-drr0ghoa2cdjgi667avcsju7fnk7cq3f.apps.googleusercontent.com',
+        client_id: process.env.GOOGLE_CLIENT_ID,
       },
     }
   },
