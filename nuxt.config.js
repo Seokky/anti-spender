@@ -22,7 +22,8 @@ module.exports = {
   plugins: [
     './plugins/icons.js',
     './plugins/vc-donut.js',
-    './plugins/SnackbarsManager.js'
+    './plugins/SnackbarsManager.js',
+    { src: '~/plugins/localStorage.js', ssr: false }
   ],
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
@@ -40,7 +41,7 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
-    '@nuxtjs/auth'
+    '@nuxtjs/firebase'
   ],
   serverMiddleware: [
     '~/server/api/index.js',
@@ -80,11 +81,19 @@ module.exports = {
       }
     }
   },
-  auth: {
-    strategies: {
-      google: {
-        client_id: process.env.GOOGLE_CLIENT_ID,
-      },
+  firebase: {
+    config: {
+      apiKey: process.env.FRB_API_KEY,
+      authDomain: process.env.FRB_AUTH_DOMAIN,
+      databaseURL: process.env.FRB_DATABASE_URL,
+      projectId: process.env.FRB_PROJECT_ID,
+      storageBucket: process.env.FRB_STORAGE_BUCKET,
+      messagingSenderId: process.env.FRB_MSG_SENDER_ID,
+      appId: process.env.FRB_APP_ID,
+    },
+    services: {
+      auth: true,
+      realtimeDb: true
     }
   },
   vue: {

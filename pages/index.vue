@@ -5,6 +5,10 @@
     align-center
   >
     <v-flex :class="$style.stats">
+      <v-btn @click="fetchTestData">
+        fetch
+      </v-btn>
+
       <v-card :class="$style.stats__row">
         <v-card-text>
           <div :class="$style['today-donut-wrapper']">
@@ -79,6 +83,14 @@ export default {
       ],
     },
   }),
+
+  methods: {
+    async fetchTestData() {
+      const { uid } = this.$store.state.auth.user;
+      const snapshot = await this.$fireDbObj().ref(`${uid}/`).once('value');
+      console.log(snapshot.toJSON())
+    }
+  }
 };
 </script>
 

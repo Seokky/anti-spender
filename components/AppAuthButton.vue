@@ -1,7 +1,7 @@
 <template>
   <div :class="$style.wrapper">
     <v-menu
-      v-if="$auth.loggedIn"
+      v-if="isAuthenticated"
       offset-y
     >
       <template v-slot:activator="{ on, attrs }">
@@ -12,9 +12,9 @@
           v-on="on"
         >
           <div :class="$style.picture">
-            <img :src="$auth.user.picture">
+            <img :src="user.picture">
           </div>
-          <span v-text="$auth.user.name" />
+          <span v-text="user.name" />
         </v-btn>
       </template>
 
@@ -23,7 +23,7 @@
           <v-list-item-avatar :size="20">
             <v-icon v-text="$icons.signout" />
           </v-list-item-avatar>
-          <v-list-item-title @click="signout">
+          <v-list-item-title @click="logout">
             Выйти
           </v-list-item-title>
         </v-list-item>
@@ -34,7 +34,7 @@
       v-else
       large
       text
-      @click="signin"
+      @click="login"
     >
       <div :class="$style.picture" />
       Войти
@@ -43,15 +43,15 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex';
+
 export default {
+  computed: {
+    ...mapState('auth', ['user', 'isAuthenticated'])
+  },
+
   methods: {
-    signin() {
-      this.$auth.loginWith('google')
-    },
-    async signout() {
-      await this.$auth.logout()
-      window.location.reload()
-    }
+    ...mapActions('auth', ['login', 'logout'])
   }
 }
 </script>

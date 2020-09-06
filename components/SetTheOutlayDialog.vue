@@ -31,6 +31,7 @@
             filled
             required
             item-text="name"
+            item-value="id"
             :items="categories"
             :rules="[isCategoryValueValid]"
           />
@@ -93,7 +94,7 @@
 
       isAmountValueValid: (value) => !!Number(value) && !/[^0-9]/.test(value),
 
-      isCategoryValueValid: (value) => !!value,
+      isCategoryValueValid: (value) => Number.isInteger(value),
     }
   }
 </script>
