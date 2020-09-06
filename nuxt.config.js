@@ -3,9 +3,6 @@ const colors = require('vuetify/es5/util/colors').default
 module.exports = {
   mode: 'spa',
   telemetry: false,
-  /*
-  ** Headers of the page
-  */
   head: {
     titleTemplate: '%s - ' + process.env.npm_package_name,
     title: process.env.npm_package_name || '',
@@ -18,27 +15,14 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  /*
-  ** Customize the progress-bar color
-  */
   loading: { color: '#fff' },
-  /*
-  ** Global CSS
-  */
-  css: [
-  ],
+  css: [],
   components: true,
-  /*
-  ** Plugins to load before mounting the App
-  */
   plugins: [
     './plugins/icons.js',
     './plugins/vc-donut.js',
-    './plugins/snackbarsManager.js'
+    './plugins/SnackbarsManager.js'
   ],
-  /*
-  ** Nuxt.js dev-modules
-  */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
@@ -49,17 +33,16 @@ module.exports = {
   styleResources: {
     scss: ['./assets/styles/variables.scss']
   },
-  /*
-  ** Nuxt.js modules
-  */
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/style-resources',
     '@nuxtjs/auth'
+  ],
+  serverMiddleware: [
+    '~/server/api/index.js',
   ],
   /*
   ** Axios module configuration
@@ -110,9 +93,6 @@ module.exports = {
       }
     }
   },
-  /*
-  ** Build configuration
-  */
   build: {
     hotMiddleware: {
       client: {

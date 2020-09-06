@@ -3,15 +3,13 @@
     fixed
     app
   >
-    <v-toolbar-title>Anti Spender</v-toolbar-title>
+    <app-auth-button />
 
     <v-spacer />
 
     <div :class="$style.actions">
       <set-the-outlay-dialog />
       <set-the-income-dialog />
-
-      <app-auth-button />
     </div>
   </v-app-bar>
 </template>
